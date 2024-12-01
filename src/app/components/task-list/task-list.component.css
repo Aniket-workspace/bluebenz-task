@@ -1,0 +1,69 @@
+/* .completed {
+  text-decoration: line-through;
+  color: gray;
+}
+li {
+  margin-bottom: 10px;
+}
+input {
+  margin-right: 10px;
+} */
+
+.completed {
+  text-decoration: line-through;
+}
+
+.title{
+  font-family: "Lato";
+  font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #5b5b5b;
+}
+
+.user-title{
+  font-family: "Lato";
+  font-size: 20px;
+  color: #5b5b5b;
+text-transform: capitalize;
+}
+
+.task-title {
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #5b5b5b;
+
+}
+
+.outer{
+  background-color:#f4f4f4;
+  height: 500px;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 10px 10px 10px #cecece;
+  overflow: auto;
+}
+
+
+@media (max-width: 576px) {
+  .task-title {
+    max-width: 70%;
+  }
+
+  .btn-sm {
+    font-size: 12px;
+  }
+
+  .list-group-item {
+    padding: 8px 15px;
+  }
+  .outer{
+    min-width: 95%;
+    padding: 20px;
+  }
+
+
+  
+}
+

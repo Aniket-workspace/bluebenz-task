@@ -1,0 +1,71 @@
+<div class="container my-5">
+  <div class="admin-dashboard">
+    <h2 class="text-center title mb-4">Admin Dashboard</h2>
+
+    <!-- Display all users -->
+    <div class="user-list mb-4">
+      <div class="header d-flex justify-content-between mb-2">
+        <h3 class="title mb-3">Users</h3>
+        <div class="user d-flex">
+          <button class="btn btn-danger btn-sm me-3" (click)="logout()">
+            Log Out
+          </button>
+        </div>
+      </div>
+      <ul class="list-group">
+        <li
+          *ngFor="let user of users"
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          <span>{{ user.name }} ({{ user.username }})</span>
+          <div>
+            <button
+              class="btn btn-info btn-sm me-2"
+              (click)="fetchUserTasks(user.id, user.name)"
+            >
+              View Tasks
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">
+              Delete User
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Display tasks for selected user -->
+    <div *ngIf="selectedUserId" class="task-list">
+      <h3 class="mb-3 title">Tasks of {{ selectedUserName }}</h3>
+      <ul class="list-group">
+        <li
+          *ngFor="let task of selectedUserTasks"
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          <span class="text-truncate" [class.completed]="task.completed">{{
+            task.title
+          }}</span>
+          <div>
+            <span
+              [class.completed]="task.completed"
+              class="badge bg-secondary me-2"
+            >
+              {{ task.completed ? "Completed" : "Incomplete" }}
+            </span>
+            <button
+              class="btn btn-danger btn-sm me-2"
+              (click)="deleteTask(task.id)"
+            >
+              Delete Task
+            </button>
+            <button
+              class="btn btn-warning btn-sm"
+              (click)="updateTaskStatus(task.id, task.completed)"
+            >
+              Mark as {{ task.completed ? "Incomplete" : "Completed" }}
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

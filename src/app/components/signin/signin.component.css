@@ -1,0 +1,27 @@
+.container {
+    padding: 15px;
+  }
+  
+  .card {
+    border-radius: 10px;
+    color: #5b5b5b;
+
+  }
+
+  .signup{
+    font-size: 14px;
+  }
+  .signup a{
+    cursor: pointer;
+  }
+  
+  @media (max-width: 576px) {
+    .form-control {
+      font-size: 14px;
+    }
+  
+    .btn {
+      font-size: 14px;
+    }
+  }
+  

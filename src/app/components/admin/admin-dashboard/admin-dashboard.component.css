@@ -1,0 +1,35 @@
+.completed {
+    text-decoration: line-through;
+  }
+  
+  .text-truncate {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .admin-dashboard{
+    color: #5b5b5b;
+  }
+  .title{
+    font-family: "Lato";
+    font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #5b5b5b;
+  }
+  
+  @media (max-width: 576px) {
+    .admin-dashboard {
+      padding: 15px;
+    }
+  
+    .list-group-item {
+      padding: 10px;
+    }
+  
+    .btn-sm {
+      font-size: 12px;
+    }
+  }
+  

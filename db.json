@@ -1,0 +1,26 @@
+{
+  "tasks": [
+    {
+      "id": "df6b",
+      "title": "hdsav",
+      "userid": "4078",
+      "completed": true
+    }
+  ],
+  "users": [
+    {
+      "id": "d445",
+      "name": "aniket",
+      "username": "aniket@gmail",
+      "password": "aniket123",
+      "role": "admin"
+    },
+    {
+      "id": "4078",
+      "name": "shreya",
+      "username": "s@gmail",
+      "password": "s1234567",
+      "role": "user"
+    }
+  ]
+}

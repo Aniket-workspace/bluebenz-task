@@ -1,0 +1,114 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow-sm w-100" style="max-width: 400px">
+    <h1 class="text-center mb-4 fs-3">Sign Up</h1>
+    <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+      <div class="form-group mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          [(ngModel)]="name"
+          name="name"
+          required
+          minlength="3"
+          placeholder="Enter your name"
+          #Name="ngModel"
+        />
+
+        <!-- validators -->
+        <div class="text-danger text-left">
+          <span *ngIf="Name.touched && Name.errors?.['required']">
+            This is required
+          </span>
+
+          <span *ngIf="Name.touched && Name.errors?.['minlength']">
+            minimum 3 characters required
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input
+          type="email"
+          id="username"
+          class="form-control"
+          [(ngModel)]="username"
+          name="username"
+          required
+          email
+          placeholder="Enter your username"
+          #userName="ngModel"
+        />
+        <!-- validators -->
+        <div class="text-danger text-left">
+          <span *ngIf="userName.touched && userName.errors?.['required']">
+            This is required
+          </span>
+
+          <span *ngIf="userName.touched && userName.errors?.['email']">
+            Please enter a valid email
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          [(ngModel)]="password"
+          name="password"
+          [type]="changeType ? 'text' : 'password'"
+          required
+          pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+          placeholder="Enter your password"
+          #pass="ngModel"
+        />
+        <span
+          class="float-end d-inline-block"
+          style="cursor: pointer"
+          (click)="isVisible()"
+          ><p [innerText]="visible ? 'Hide' : 'Show'"></p
+        ></span>
+
+        <!-- validators -->
+        <div class="text-danger text-left">
+          <span *ngIf="pass.touched && pass.errors?.['required']">
+            This is required
+          </span>
+
+          <span *ngIf="pass.touched && pass.errors?.['pattern']">
+            must be at least 8 characters, at least one letter and one number.
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="role" class="form-label">Select Role</label>
+        <select name="role" [(ngModel)]="role" class="form-control" required>
+          <option value="" disabled>Select</option>
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary w-100"
+        [disabled]="signupForm.invalid"
+      >
+        Sign Up
+      </button>
+
+      <div class="signin mt-2">
+        <p>
+          Already have account?
+          <a class="text-primary" (click)="toSignin()">SignIn</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
