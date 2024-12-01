@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class TaskListComponent implements OnInit {
   private apiUrl = 'http://localhost:3000/tasks';
 
-  editingTask: Task | null = null; // Holds the task being edited
+  editingTask: Task | null = null;
 
   name: string = ""
   userId: number = 0
@@ -45,7 +45,6 @@ export class TaskListComponent implements OnInit {
   }
 
   loadTasks(): void {
-    // this.http.get<Task[]>(this.apiUrl).subscribe((data) => (this.tasks = data ?? []));
 
     this.http.get<Task[]>(`${this.apiUrl}?userid=${this.userId}`).subscribe((data) => (this.tasks = data ?? []));
 
@@ -54,18 +53,18 @@ export class TaskListComponent implements OnInit {
 
 
   startEditing(task: Task): void {
-    this.editingTask = { ...task }; // Clone the task to avoid direct binding
+    this.editingTask = { ...task };
   }
 
   cancelEditing(): void {
-    this.editingTask = null; // Cancel editing
+    this.editingTask = null;
   }
 
   saveTask(): void {
     if (this.editingTask) {
       this.http.put<Task>(`${this.apiUrl}/${this.editingTask.id}`, this.editingTask).subscribe(() => {
         this.editingTask = null;
-        this.loadTasks(); // Reload tasks to reflect changes
+        this.loadTasks();
       });
     }
   }

@@ -17,7 +17,6 @@ export class AdminDashboardComponent {
   selectedUserId: string = '';
   selectedUserName: string = '';
   selectedUserTasks: any;
-  // name: string = ""
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -28,8 +27,6 @@ export class AdminDashboardComponent {
 
     } else if (JSON.parse(auth)[0].role === "admin") {
       this.router.navigate(["/admin"])
-      // this.name = JSON.parse(auth)[0].name
-      // this.userId = JSON.parse(auth)[0].id
       this.fetchUsers();
 
     }

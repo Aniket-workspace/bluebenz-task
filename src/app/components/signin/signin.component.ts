@@ -13,10 +13,6 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent {
 
-  // signinForm: FormGroup = new FormGroup({
-  //   userName: new FormControl("", [Validators.required,]),
-  //   pass: new FormControl("", [Validators.required]),
-  // })
   username: string = '';
   password: string = '';
   role: string = ""

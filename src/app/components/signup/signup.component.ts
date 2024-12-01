@@ -29,7 +29,6 @@ export class SignupComponent {
       return;
     }
     const newUser = { name: this.name, username: this.username, password: this.password, role: this.role };
-    // POST request to JSON Server to create a new user
     this.http.post('http://localhost:3000/users', newUser).subscribe({
       next: (response) => {
         alert('User created successfully');
